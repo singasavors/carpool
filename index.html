@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Singasavor | Multi-Service Booking Platform for SG & Malaysia</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Singasavor connects users with trusted service providers across Singapore and Malaysia. Book transport, moving help, event setup, and more — no account needed.">
+<meta name="keywords" content="service booking, Singapore Malaysia transport, event setup, moving services, cross border, pet transport, accommodation booking, Singasavor">
+<meta name="author" content="Singasavor">
+
+<!-- Social Sharing -->
+<meta property="og:title" content="Singasavor | Book Trusted Services Across SG & Malaysia">
+<meta property="og:description" content="From transport to event setup, Singasavor links you with licensed providers in Singapore and Malaysia. Simple, secure, and no account needed.">
+<meta property="og:image" content="https://singasavors.github.io/carpool/singasavor-logo.png">
+<meta property="og:url" content="https://singasavors.github.io/carpool">
+<meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://singasavors.github.io/carpool/favicon.ico" type="image/x-icon"/>
+
+  <!-- External Styles & Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Baloo+2&display=swap" rel="stylesheet"/>
+
+  <!-- Custom Styles -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #10253f, #183d5d);
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    text-align: center;
+    color: #00bfff;
+    font-family: 'Baloo 2', cursive;
+    text-shadow: 0 0 6px rgba(0, 191, 255, 0.4);
+  }
+
+  .navbar {
+    background: linear-gradient(135deg, #10253f, #183d5d);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.1);
+  }
+
+  .menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #00bfff;
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-links a:hover {
+    color: #33ccff;
+  }
+
+  .slider img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+
+  iframe {
+    border: none;
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2rem;
+    margin: 30px 0;
+  }
+
+  .contact-links a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+
+  .floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+  }
+
+  .floating-buttons a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00bfff;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 191, 255, 0.4);
+  }
+
+  .floating-buttons img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .floating-buttons a:hover {
+    transform: scale(1.1);
+    background: #33ccff;
+  }
+
+  .card {
+    background-color: #112b44 !important;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.12);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 191, 255, 0.25);
+  }
+
+  .footer, .container {
+    background-color: transparent !important;
+  }
+
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #10253f;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      box-shadow: 0 6px 16px rgba(0,191,255,0.2);
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .loading-indicator {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .feedback-section {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background-color: #0f2a46;
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+    text-align: center;
+  }
+
+  .feedback-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #00e6ff;
+    text-shadow: 0 0 4px rgba(0,230,255,0.3);
+  }
+
+  .feedback-section .form-group {
+    margin-bottom: 20px;
+  }
+
+  .feedback-section textarea.form-control {
+    min-height: 150px;
+    font-size: 1rem;
+    padding: 15px;
+    background-color: #0f2a46;
+    color: #ffffff;
+    border: 1px solid #00bfff;
+    border-radius: 8px;
+  }
+
+  .feedback-section button {
+    width: 100%;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #00bfff, #66ffff);
+    border: none;
+    font-weight: bold;
+    color: #002f4b;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .feedback-section button:hover {
+    background: linear-gradient(135deg, #33ccff, #99f2ff);
+    color: #001e2e;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00e6ff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 4px rgba(0,230,255,0.4);
+  }
+
+  .container h2::after {
+    content: "";
+    display: block;
+    margin: 0.5rem auto 1rem;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00e6ff, #66ffff);
+    border-radius: 8px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #00bfff, #66ffff);
+    border: none;
+    font-weight: bold;
+    color: #002f4b;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #33ccff, #99f2ff);
+    color: #001e2e;
+  }
+
+  textarea.form-control {
+    background-color: #0f2a46;
+    color: #ffffff;
+    border: 1px solid #00bfff;
+    border-radius: 8px;
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Singasavor",
+  "url": "https://singasavors.github.io/carpool",
+  "logo": "https://singasavors.github.io/carpool/assets/anderson-cover.jpg",
+  "sameAs": [
+    "https://wa.me/message/IMF74QQSFOYQA1",
+    "https://t.me/m/xX_VdEcPNTBl"
+  ],
+  "description": "Singasavor connects users with licensed service providers across Singapore and Malaysia, including transport, moving, events, and more."
+}
+</script>
+
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="https://singasavors.github.io/carpool/singasavor.png" alt="Singasavor Logo" style="height:32px; max-width: 160px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="carpool.html">Carpool Booking</a></li>
+        <li class="nav-item"><a class="nav-link" href="monthly-pass.html">Monthly Pass</a></li>
+        <li class="nav-item"><a class="nav-link" href="private-bus.html">Private Bus Hire</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="container my-5">
+    <h2>Cross Border Services</h2>
+  </div>
+  <div class="slider container mb-5">
+    <img src="https://singasavors.github.io/carpool/Carpool2.png" alt="Carpool Image"/>
+    <img src="https://singasavors.github.io/carpool/Carpool1.png" alt="Carpool Image"/>
+    <img src="https://singasavors.github.io/carpool/Carpool3.png" alt="Carpool Image"/>
+    <img src="https://singasavors.github.io/carpool/Carpool4.png" alt="Carpool Image"/>
+  </div>
+
+  <div class="container my-5">
+    <h2>Disposal and Moving Services</h2>
+  </div>
+  <div class="slider container mb-5">
+    <img src="https://singasavors.github.io/carpool/Mover1.png" alt="Mover Image"/>
+    <img src="https://singasavors.github.io/carpool/Mover2.png" alt="Mover Image"/>
+    <img src="https://singasavors.github.io/carpool/Mover3.png" alt="Mover Image"/>
+    <img src="https://singasavors.github.io/carpool/Mover4.png" alt="Mover Image"/>
+  </div>
+
+  <div class="container my-5">
+    <h2>Private School Bus Hire</h2>
+  </div>
+  <div class="slider container mb-5">
+    <img src="https://singasavors.github.io/carpool/Private4.png" alt="Private Bus Image"/>
+    <img src="https://singasavors.github.io/carpool/Private3.png" alt="Private Bus Image"/>
+    <img src="https://singasavors.github.io/carpool/Private2.png" alt="Private Bus Image"/>
+    <img src="https://singasavors.github.io/carpool/Private1.png" alt="Private Bus Image"/>
+  </div>
+
+  <div class="container my-5">
+    <h2>Location: 120C Rivervale Drive, #11-400, Rivervale Gardens, Singapore 543120</h2>
+  </div>
+  <div class="container mb-5">
+    <iframe src="https://www.google.com/maps?q=120C%20Rivervale%20Drive%20%2311-400%2C%20Singapore%20543120&amp;output=embed" width="100%" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+   <div class="floating-buttons">
+    <a href="https://wa.me/message/YX7KRSVBIV4ZJ1" style="background: none;" target="_blank">
+      <img alt="WhatsApp" height="55" src="https://singasavors.github.io/carpool/WhatsApp.png" style="border-radius: 50%;" width="55"/>
+    </a>
+    <a class="telegram" href="https://t.me/m/xX_VdEcPNTBl" style="background: none;" target="_blank">
+      <img alt="Telegram" height="55" src="https://singasavors.github.io/carpool/Telegram.png" style="border-radius: 50%;" width="55"/>
+    </a>
+  </div>
+
+  <div id="loadingIndicator" class="loading-indicator">
+    <img src="loading.gif" alt="Loading..." />
+  </div>
+
+  <div class="feedback-section">
+  <h3>We value your feedback</h3>
+  <form action="https://formsubmit.co/endgameis21@hotmail.com" method="POST">
+    <!-- Optional spam protection -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Feedback from Singasavor">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="form-group">
+      <label for="feedback">Your Feedback</label>
+      <textarea id="feedback" name="message" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+  </form>
+</div>
+
+  <script>
+  $(document).ready(function () {
+    // Slider config
+    $('.slider').slick({
+      autoplay: true,
+      dots: true,
+      infinite: true,
+      speed: 600,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
+
+    // Mobile navigation toggle
+    $('#menuBtn').on('click', function () {
+      $('#navMenu').toggleClass('active');
+    });
+
+    // Optional: Hide nav menu when a link is clicked
+    $('#navMenu a').on('click', function () {
+      $('#navMenu').removeClass('active');
+    });
+  });
+
+  function showLoading() {
+    document.getElementById("loadingIndicator").style.display = "block";
+  }
+
+  function hideLoading() {
+    document.getElementById("loadingIndicator").style.display = "none";
+  }
+
+  // Show loading indicator before form submission
+  document.getElementById("feedbackForm").addEventListener("submit", function () {
+    showLoading();
+  });
+
+  document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Submit feedback
+    // ...
+    alert("Thank you for your feedback!");
+    hideLoading();
+  });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</body>
+</html>

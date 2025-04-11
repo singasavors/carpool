@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f2b4d;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #183d5f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #4db8ff;
+            text-align: center;
+        }
+        h1 {
+            color: #00ff7f;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            color: #ffea00;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: none;
+            background: #334455;
+            color: #f8f9fa;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffea00;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #ffd700;
+            transform: scale(1.05);
+        }
+        .fee-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff7f;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Submit Your Details</h1>
+        <form id="detailsForm">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" name="customerName" required>
+
+            <label for="childName">Child’s Name</label>
+            <input type="text" id="childName" name="childName" required>
+
+            <label for="contactNumber">Contact Number</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" name="emailAddress" required>
+
+            <label for="travelDate">Start Date</label>
+            <input type="date" id="travelDate" name="travelDate" required>
+
+            <label for="homeAddress">Home Address</label>
+            <input type="text" id="homeAddress" name="homeAddress" required>
+
+            <label for="schoolAddress">School Address</label>
+            <input type="text" id="schoolAddress" name="schoolAddress" required>
+
+            <label for="distance">Distance Between Home & School</label>
+            <select id="distance" name="distance" required>
+                <option value="119">Up to 2 km – $119</option>
+                <option value="147">2-4 km – $147</option>
+                <option value="189">4-6 km – $189</option>
+                <option value="224">6-8 km – $224</option>
+                <option value="259">8-10 km – $259</option>
+                <option value="294">10-12 km – $294</option>
+                <option value="322">12-14 km – $322</option>
+                <option value="336">14-16 km – $336</option>
+            </select>
+
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType" required>
+                <option value="two-way">Private School Bus (Two Way)</option>
+                <option value="one-way">Private School Bus (One Way)</option>
+            </select>
+
+            <label for="pickupTime">Pick-Up Time (Home)</label>
+            <input type="time" id="pickupTime" name="pickupTime" required>
+
+            <label for="returnTime">Pick-Up Time (School)</label>
+            <input type="time" id="returnTime" name="returnTime" required>
+
+            <div class="fee-display">Total Monthly Fee: <span id="monthlyFee">$119</span></div>
+
+            <button type="submit" class="submit-btn">Submit Details</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("distance").addEventListener("change", updateFee);
+        document.getElementById("serviceType").addEventListener("change", updateFee);
+
+        function updateFee() {
+            let baseFee = parseFloat(document.getElementById("distance").value);
+            let serviceType = document.getElementById("serviceType").value;
+            
+            let finalFee = serviceType === "one-way" ? baseFee / 2 : baseFee;
+            document.getElementById("monthlyFee").textContent = `$${finalFee.toFixed(2)}`;
+        }
+
+        document.getElementById("detailsForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            let queryString = "?";
+            for (let [key, value] of formData.entries()) {
+                queryString += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`;
+            }
+
+            // Append calculated fee to URL
+            const finalFee = parseFloat(document.getElementById("monthlyFee").textContent.replace("$", ""));
+            queryString += `F12_Amount=${finalFee.toFixed(2)}`;
+
+            // Redirect to the invoice page with data
+            window.location.href = "https://singasavors.github.io/Private-bus-hire/invoice.html" + queryString;
+        });
+    </script>
+
+</body>
+</html>

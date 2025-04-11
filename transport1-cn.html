@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Services Between Singapore and Malaysia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a0f1a, #1a273a, #243b55);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Animated neon glow for headings */
+h2 {
+    color: #00aaff;
+    text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0, 170, 255, 0.8), 0 0 30px rgba(0, 170, 255, 0.6);
+    animation: glow-text 1.5s infinite alternate;
+}
+
+@keyframes glow-text {
+    0% { text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0, 170, 255, 0.8); }
+    100% { text-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.9); }
+}
+
+/* Animated Neon Border */
+@keyframes neon-border {
+    0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 165, 0, 0.6); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 0, 255, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 165, 0, 0.6); }
+}
+
+/* Service Card with Hover Effects */
+.service-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background: linear-gradient(145deg, #1a1f2b, #2c3e50);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 100%;
+    min-height: 100px;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    border: 2px solid #00ffff;
+}
+
+/* Neon glowing effect for selected cards */
+.service-card.selected {
+    animation: neon-border 2s infinite alternate;
+}
+
+/* Service Details */
+.service-details {
+    flex-grow: 1;
+}
+
+/* Title with Neon Glow */
+.service-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+/* Animated description */
+.service-description {
+    font-size: 0.95rem;
+    color: #bbbbbb;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-card:hover .service-description {
+    color: #ffffff;
+}
+
+/* Price with Glowing Effect */
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4caf50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.8), 0 0 15px rgba(76, 175, 80, 0.6);
+}
+
+/* Image Glow */
+.service-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(0, 170, 255, 0.5);
+    margin-left: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-img {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+/* Passenger Control */
+.passenger-control {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* Passenger Counter */
+.passenger-count {
+    font-size: 1rem;
+    margin: 0 10px;
+    min-width: 35px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Neon Buttons */
+.btn-small {
+    background: linear-gradient(145deg, #4caf50, #388e3c);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-small:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+    border: 2px solid #00ff00;
+}
+
+/* Total Price with Glow */
+.total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00aaff;
+    text-shadow: 0 0 12px rgba(0, 170, 255, 0.7), 0 0 18px rgba(0, 170, 255, 0.5);
+    margin-top: 20px;
+    text-align: center;
+    animation: pulse-glow 2s infinite alternate;
+}
+
+/* Subtle Glow Animation */
+@keyframes pulse-glow {
+    0% { text-shadow: 0 0 10px rgba(0, 170, 255, 0.7); }
+    100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.9); }
+}
+    </style>
+</head>
+<body>
+
+<div class="container my-4">
+    <h2 class="text-center mb-3">适用于所有往返新加坡和马来西亚的旅客</h2>
+    <div id="service-list"></div>
+    <div class="total" id="totalPrice">总计: $15.00</div>
+    <button onclick="redirectToNextPage()" class="btn btn-primary btn-lg mt-3 d-block mx-auto">下一页</button>
+</div>
+
+<script>
+    let selectedPrice = 15;
+    let passengerCount = 1;
+
+    const services = [
+        { title: "新加坡 - 柔佛", description: "无忧出行。", price: 15, img: "https://s.tfrbot.com/h/ax6OPW" },
+        { title: "新加坡 - 马六甲", description: "舒适旅程。", price: 20, img: "https://s.tfrbot.com/h/hgXoJF" },
+        { title: "新加坡 - 吉隆坡", description: "时尚出行。", price: 25, img: "https://s.tfrbot.com/h/9KLUhQ" },
+        { title: "新加坡 - 云顶", description: "舒适直达云顶。", price: 30, img: "https://s.tfrbot.com/h/IyZmkz" }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const serviceList = document.getElementById('service-list');
+
+        services.forEach((service, index) => {
+            const card = document.createElement('div');
+            card.className = 'service-card ' + (index === 0 ? 'selected' : '');
+            card.addEventListener('click', () => selectService(card, service.price));
+            
+            card.innerHTML = `
+                <div class="service-details">
+                    <div class="service-title">${service.title}</div>
+                    <div class="service-description">${service.description}</div>
+                    <div class="price">\$${service.price.toFixed(2)}</div>
+                    <div class="passenger-control">
+                        <button class="btn-small minus-btn">-</button>
+                        <span class="passenger-count">1</span>
+                        <button class="btn-small plus-btn">+</button>
+                    </div>
+                </div>
+                <img src="${service.img}" alt="${service.title}" class="service-img">
+            `;
+
+            serviceList.appendChild(card);
+        });
+
+        document.querySelectorAll('.btn-small.minus-btn').forEach(btn => {
+            btn.addEventListener('click', (event) => changePassengers(event, -1));
+        });
+
+        document.querySelectorAll('.btn-small.plus-btn').forEach(btn => {
+            btn.addEventListener('click', (event) => changePassengers(event, 1));
+        });
+
+        updateTotal();
+    });
+
+    function selectService(selectedCard, price) {
+        document.querySelectorAll('.service-card').forEach(card => card.classList.remove('selected'));
+        selectedCard.classList.add('selected');
+        selectedPrice = price;
+        passengerCount = 1;
+        document.querySelectorAll('.passenger-count').forEach(el => el.textContent = passengerCount);
+        updateTotal();
+    }
+
+    function changePassengers(event, change) {
+        event.stopPropagation();
+        passengerCount = Math.max(1, passengerCount + change);
+        document.querySelector('.selected .passenger-count').textContent = passengerCount;
+        updateTotal();
+    }
+
+    function updateTotal() {
+        document.getElementById('totalPrice').textContent = `总计: \$${(selectedPrice * passengerCount).toFixed(2)}`;
+    }
+
+    function redirectToNextPage() {
+        const totalAmount = (selectedPrice * passengerCount).toFixed(2);
+        window.location.href = `https://singasavors.github.io/Private-bus-hire/transport2.html?F12_Amount=${totalAmount}`;
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

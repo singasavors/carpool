@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Private Bus Hire | Singapore School Bus Services</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Reliable private school bus hire service in Singapore for students and daily transport. Check our rates and enroll today." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Private Bus Hire | Singapore School Bus Services" />
+    <meta property="og:description" content="Reliable private school bus hire service in Singapore. Safe, licensed transport for students. View pricing and enroll online." />
+    <meta property="og:url" content="https://singasavor.com/private-bus.html" />
+    <meta property="og:image" content="https://singasavor.com/assets/bus1.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Private Bus Hire | Singapore School Bus Services" />
+    <meta name="twitter:description" content="Reliable private school bus hire service in Singapore. Safe, licensed transport for students." />
+    <meta name="twitter:image" content="https://singasavor.com/assets/bus1.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://singasavor.com/private-bus.html" />
+
+    <style>
+    /* Theme Variables */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #005f8a;
+    --highlight-color: #00c3ff;
+    --cta-color: #f39c12;
+    --cta-hover: #e67e22;
+    --faq-bg: #1b2d40;
+    --text-color: white;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #0a1a2a;
+    color: var(--text-color);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: var(--text-color);
+    padding: 12px 18px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbar a:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 0 12px var(--highlight-color);
+    border-radius: 5px;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.menu-items {
+    display: flex;
+    gap: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .menu-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--primary-color);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        text-align: center;
+        padding: 15px 0;
+    }
+    .menu-items.active {
+        display: flex;
+    }
+}
+
+/* Full-width Container */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 100px 0 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Table Styling */
+.pricing-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.pricing-table th {
+    background: linear-gradient(90deg, var(--highlight-color), #0077cc);
+    color: #fff;
+    padding: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.pricing-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pricing-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pricing-table tr:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+
+/* CTA Buttons */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cta-button {
+    background: linear-gradient(90deg, var(--cta-color), #e67e22);
+    color: white;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: box-shadow 0.3s, transform 0.2s;
+    display: inline-block;
+    min-width: 160px;
+    text-align: center;
+}
+
+.cta-button:hover {
+    box-shadow: 0 0 18px var(--cta-hover);
+    transform: scale(1.05);
+}
+
+/* Different color for Enroll Button */
+.cta-enroll {
+    background: #28a745;
+}
+
+.cta-enroll:hover {
+    box-shadow: 0 0 18px #28a745;
+}
+
+/* FAQ Section */
+.faq {
+    background: var(--faq-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Individual FAQ Items */
+.faq-item {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0;
+    border-bottom: 1px solid var(--highlight-color);
+    padding-bottom: 12px;
+}
+
+/* FAQ Question Styling */
+.faq-item h3 {
+    cursor: pointer;
+    padding: 15px;
+    margin: 0;
+    background: #0e223a;
+    border-radius: 5px;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.faq-item h3:hover {
+    background: var(--highlight-color);
+}
+
+.faq-item h3::after {
+    content: "+";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.faq-item.active h3::after {
+    content: "−";
+}
+
+/* FAQ Answer Styling */
+.faq-item p {
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 0px;
+    display: block;
+    white-space: normal;
+}
+
+.faq-item.active p {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 12px;
+    overflow: visible;
+    display: block;
+    word-wrap: break-word;
+}
+
+/* Adjust FAQ container */
+.faq {
+    background: var(--faq-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+/* Improve FAQ question button */
+.faq-item h3 {
+    cursor: pointer;
+    padding: 15px;
+    margin: 0;
+    background: #0e223a;
+    border-radius: 5px;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.faq-item h3:hover {
+    background: var(--highlight-color);
+}
+
+.faq-item h3::after {
+    content: "+";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.faq-item.active h3::after {
+    content: "−";
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .faq {
+        width: 100%;
+    }
+
+    .fleet img {
+        max-width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        padding: 12px;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-table {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <div class="menu-items">
+            <a href="https://www.singasavor.com">Home</a>
+            <a href="https://www.singasavor.com/monthly-pass.html">Travel Passes</a>
+            <a href="https://www.singasavor.com/reviews.html">Our Reviews</a>
+            <a href="https://www.singasavor.com/transport1">Cross Border Service</a>
+            <a href="https://www.singasavor.com/submit-details.html">Enroll for School Bus</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Private Bus Hire</h1><br>
+        <h2>Mon to Fri</h2><br>
+    <h2>Two Way Price</h2><br>
+
+
+    <table class="pricing-table">
+
+
+        <tr>
+
+
+            <th>Distance</th>
+
+
+            <th>Monthly Price</th>
+
+
+        </tr>
+
+
+        <tr><td>Up to 2 km</td><td>$119</td></tr>
+
+
+        <tr><td>2 – 4 km</td><td>$147</td></tr>
+
+
+        <tr><td>4 – 6 km</td><td>$189</td></tr>
+
+
+        <tr><td>6 – 8 km</td><td>$224</td></tr>
+
+
+        <tr><td>8 – 10 km</td><td>$259</td></tr>
+
+
+        <tr><td>10 – 12 km</td><td>$294</td></tr>
+
+
+        <tr><td>12 – 14 km</td><td>$322</td></tr>
+
+
+        <tr><td>14 – 16 km</td><td>$336</td></tr>
+
+
+    </table>
+
+
+    
+
+
+    <h2>Our Fleet</h2>
+
+
+    <div class="fleet">
+
+
+        <img src="https://singasavors.github.io/Logo/bus2.png" alt="Mini Van">
+
+
+        <img src="https://singasavors.github.io/Logo/bus1.png" alt="Bus">
+
+
+    </div>
+
+
+    
+
+
+    <div class="cta-container">
+
+
+        <a href="https://wa.me/+6580147841" class="cta-button">Contact Us</a>
+
+
+        <a href="https://www.singasavor.com/submit-details.html" class="cta-button cta-enroll">Enroll Online</a>
+
+
+    </div>
+
+
+    
+
+
+    <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <!-- Pricing & Services -->
+    <h3 class="faq-category">Pricing & Services</h3>
+    
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What does the price include?</h3>
+        <p>The price covers transport service five days a week, including both pickup from home to school and return trips.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Do you offer one-way or private transport?</h3>
+        <p>Yes! You can choose a one-way service (either morning or afternoon) at half the full price. Private transport for a single child is also available—please contact us for a customized quote.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Are your vehicles licensed and insured?</h3>
+        <p>Yes, all our minibuses are approved by the Land Transport Authority (LTA) and covered by Comprehensive Commercial Vehicle Insurance. Our drivers hold valid Bus Driver Vocational Licences (BDVL).</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What types of vehicles do you use?</h3>
+        <p>We operate 13-seater minibuses designed for safe and efficient school transportation.</p>
+    </div>
+
+    <!-- Scheduling & Adjustments -->
+    <h3 class="faq-category">Scheduling & Adjustments</h3>
+    
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">How are pickup and drop-off times determined?</h3>
+        <p>Schedules are based on your child's school timing and our route planning. Initial adjustments may be needed, but we maintain consistent timing thereafter.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What if my child is sick or absent?</h3>
+        <p>Please inform us in advance if your child will not be taking the bus. While there are no refunds for missed rides, this helps us manage scheduling better.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What if school dismissal times change?</h3>
+        <p>If there are occasional changes like early dismissal, let us know in advance, and we will adjust pickup accordingly.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What happens if my child is not at the pickup point on time?</h3>
+        <p>If your child is not at the pickup point, we will reach out to the school directly and handle the situation accordingly. Our drivers are experienced in managing such cases smoothly.</p>
+    </div>
+
+    <!-- Safety & Special Requests -->
+    <h3 class="faq-category">Safety & Special Requests</h3>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What safety measures do you have in place?</h3>
+        <p>All children are seated securely throughout the journey. Our vehicles are regularly maintained, and our experienced drivers undergo background checks.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Can I request a fixed driver for my child?</h3>
+        <p>Yes, we can assign a dedicated driver to provide consistency in daily transport.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">What if the school does not allow private bus pickups?</h3>
+        <p>If private buses are not permitted inside, we can arrange pickup at a designated location nearby.</p>
+    </div>
+
+   <!-- Enrollment & Booking -->
+<h3 class="faq-category">Enrollment & Booking</h3>
+
+<div class="faq-item">
+    <h3 onclick="toggleFAQ(this)">How far in advance do I need to enroll?</h3>
+    <p>Your child can start as soon as the next day after payment. However, school entry permission for our bus takes around two weeks. Until then, we will pick up and drop off outside the school.</p>
+</div>
+
+<div class="faq-item">
+    <h3 onclick="toggleFAQ(this)">Can students living in Johor Bahru enroll in your private bus hire?</h3>
+    <p>Yes, we provide cross-border transportation for students staying in Johor Bahru. We recommend subscribing to our monthly travel pass at $250 per month for a hassle-free commute.</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuItems = document.querySelector(".menu-items");
+
+    // Toggle menu visibility on click
+    menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent unintended closing when clicking the button
+        menuItems.classList.toggle("active");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!menuToggle.contains(event.target) && !menuItems.contains(event.target)) {
+            menuItems.classList.remove("active");
+        }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    menuItems.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+    // FAQ Toggle Function
+    function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const answer = faqItem.querySelector("p");
+
+        if (!answer) return; // Avoid errors if no paragraph is found
+
+        // Check if already active
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all FAQs before opening the clicked one
+        document.querySelectorAll(".faq-item").forEach(item => {
+            item.classList.remove("active");
+            const itemAnswer = item.querySelector("p");
+            if (itemAnswer) {
+                itemAnswer.style.maxHeight = "0px";
+                itemAnswer.style.opacity = "0";
+                itemAnswer.style.padding = "0px";
+            }
+        });
+
+        // Toggle the clicked FAQ
+        if (!isActive) {
+            faqItem.classList.add("active");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            answer.style.opacity = "1";
+            answer.style.padding = "12px";
+        }
+    }
+
+    // Attach click event to FAQ questions
+    document.querySelectorAll(".faq-item h3").forEach(item => {
+        item.addEventListener("click", function () {
+            toggleFAQ(this);
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>
